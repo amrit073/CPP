@@ -8,7 +8,6 @@
 
 #include <iomanip>
 #include <iostream>
-#include <string>
 using namespace std;
 
 void print_all(string i, string city, string district, string province,
@@ -19,7 +18,7 @@ void print_all(string i, string city, string district, string province,
 }
 
 int main() {
-  print_all("S.No", "city", "district", "province", "population");
+  print_all("S.No", "City", "District", "Province", "Population");
   print_all("1.", "kathmandu", "kathmandu", "bagmati", "500000");
   print_all("2.", "pokhara", "kaski", "gandaki", "50000");
   print_all("3.", "butwal", "rupendehi", "lumbini", "100000");
