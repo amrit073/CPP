@@ -16,6 +16,5 @@ void reverse(char *myname) {
 
 int main() {
   char name[] = "pizza";
-  cout << "enter a string toreverse" << endl;
   reverse(name);
 }
