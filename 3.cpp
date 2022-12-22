@@ -10,7 +10,7 @@ void reverse(char *myname) {
   char *temp;
   do {
     cout << myname[--i];
-  }while (i != 0);
+  } while (i != 0);
   cout << endl;
 }
 
