@@ -33,7 +33,6 @@ void sort(char *arr){
   cout << endl;
 
 }
-
 void sort(float *arr){
   int i,j;
   float temp;
@@ -50,6 +49,8 @@ void sort(float *arr){
   cout << endl;
 
 }
+
+//Imagine having to write above functions repeteadly in copy AGAIN! ;)
 
 int main(){
   int arr1[5] = {2,3,4,1,6};

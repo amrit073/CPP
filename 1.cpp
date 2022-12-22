@@ -10,10 +10,10 @@
 #include <iostream>
 using namespace std;
 
-void print_all(string i, string city, string district, string province,
-               string population) {
+void print_all(char i[], char city[], char district[], char province[],
+               char population[]) {
   cout << left << setw(15) << i << left << setw(15) << city << left << setw(15)
-       << district << left << setw(15) << province << left << setw(15)
+       << district << left << setw(15) << province << right << setw(15)
        << population << endl;
 }
 
@@ -24,3 +24,8 @@ int main() {
   print_all("3.", "butwal", "rupendehi", "lumbini", "100000");
   print_all("4.", "dharan", "sunsari", "prov1", "80000");
 }
+
+
+//this program is not as per as C++ standard. ISO C++ 11  doesnot allow converting 
+//string literals into char pointer. BUT hey, it works!!
+//its better to use 'string city' than 'char city[]' in this condition.
