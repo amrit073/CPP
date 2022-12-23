@@ -2,23 +2,24 @@
 #include "iostream"
 using namespace std;
 
-void reverse(char *myname) {
-  int i = 0;
+char* reverse(char *word) {
+  int i = 0,j=0;
   cout << "reverse string is: "; 
-  while (myname[i] != '\0') {
+  while (word[i] != '\0') {
     i++;
   }
+  
   char *temp;
   do {
-    cout << myname[--i];
+    temp[j++] = word[--i];
   } while (i != 0);
-  cout << endl;
+  return temp;
 }
 
 int main() {
-  char name[10];
-  cout << "enter a string toreverse" << endl;
-  cin >> name;
-  cout << "entered string is : "<< name << endl;
-  reverse(name);
+  char word[10];
+  cout << "enter a string toreverse " ;
+  cin >> word;
+  cout << "entered string is : "<<word<< endl;
+  cout << reverse(word) << endl;
 }
