@@ -5,8 +5,8 @@ using namespace std;
 void sort(int *arr){
   int i,j, temp;
   for(i=0; i<5;i++){
-    for(j=0;j<i;j++){
-      if (arr[i] < arr[j]){
+    for(j=i;j<5;j++){
+      if (arr[i] > arr[j]){
         temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -21,8 +21,8 @@ void sort(char *arr){
   int i,j;
   char temp;
   for(i=0; i<5;i++){
-    for(j=0;j<i;j++){
-      if (arr[i] < arr[j]){
+    for(j=i;j<5;j++){
+      if (arr[i] > arr[j]){
         temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -37,8 +37,8 @@ void sort(float *arr){
   int i,j;
   float temp;
   for(i=0; i<5;i++){
-    for(j=0;j<i;j++){
-      if (arr[i] < arr[j]){
+    for(j=i;j<5;j++){
+      if (arr[i] > arr[j]){
         temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
