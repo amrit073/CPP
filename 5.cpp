@@ -1,3 +1,5 @@
+// 5. Write a program using dynamic memory allocation to get input an array of numbers and find
+//    the sum of N numbers stored in the array using a function to compute the sum.
 #include <iostream>
 using namespace std;
 

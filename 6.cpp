@@ -1,3 +1,7 @@
+// 6. Write a program that uses a structure Distance with data members meter and centimeter.
+//    Encapsulate the structure with the input and output function as well as the function to add the
+//    two variables of Distance and return the sum. Your program should display the result.
+
 #include <iostream>
 using namespace std;
 struct Distance{
