@@ -11,3 +11,12 @@ for i in $(find . -type f -name "*.c")
 for i in $(find . -type f -name "*.cpp") 
 do g++ -o out "$i" 
 done  
+
+if [ $? -eq 0 ] 
+then 
+  echo "Successfully compiled" 
+  exit 0 
+else 
+  echo "Could compile program" >&2 
+  exit 1 
+fi
