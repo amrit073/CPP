@@ -22,6 +22,7 @@ public:
       minute = minute % 60;
       hour++;
     }
-  };
+  }
+};
 
-  int main() {}
+int main() {}
