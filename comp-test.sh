@@ -3,14 +3,14 @@
 #!/bin/bash
 
 compile () {
-  for i in $(find . -type f -name "*.c")
+  find . -type f -name "*.c" | while read -r i
   do 
     if grep math.h "$i" 2>/dev/null
     then gcc -o out "$i" -lm  2>/dev/null
     else gcc -o out "$i" 2>/dev/null
     fi 
   done 
-  for i in $(find . -type f -name "*.cpp") 
+  find . -type f -name "*.cpp" | while read -r i
   do g++ -o out "$i"  2>/dev/null
   done
 }
