@@ -12,6 +12,14 @@ int sum(int arr[], int n) {
   }
   return sum;
 }
+// or
+int sum2(int *arr, int n) {
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
 
 int main() {
   int x, n;

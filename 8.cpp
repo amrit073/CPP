@@ -12,12 +12,18 @@ class Distance {
 public:
   Distance() {}
 
+  // copy constructor initializing the object (d) of same class (Distance)
+  Distance(Distance &d) {
+    f = d.f;
+    i = d.i;
+  }
+
   void input() {
     cout << "enter feet and inch ";
     cin >> f >> i;
   }
 
-  void print() { cout << "value is  " << f << " ft " << i << " inch \n"; }
+  void print() { cout << "total value is  " << f << " ft " << i << " inch \n"; }
 
   Distance add(Distance d2) {
     Distance result;
@@ -29,12 +35,15 @@ public:
 };
 
 int main() {
-  Distance d1, d2;
+  Distance d1, d2, result, result2;
   d1.input();
   d1.print();
   d2.input();
   d2.print();
-  Distance result = d1.add(d2);
-  cout << "total ";
+  result = d1.add(d2);
   result.print();
+  // creating copy of d1 -> uses copy constructor
+  Distance d3(d1);
+  result2 = d3.add(d2);
+  result2.print();
 }
