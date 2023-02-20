@@ -7,59 +7,68 @@
 //    Show the values of each object and their sum as output.
 
 #include <iostream>
-
 using namespace std;
 
 class Time {
-  int hour, minute, second;
+private:
+  int hour, min, sec;
 
 public:
-  void input() {
-    cout << "Enter time hour, minutes and second : ";
-    cin >> hour >> minute >> second;
-  }
-
+  void set() {
+    cout << "enter time in hour , min and sec: ";
+    cin >> hour >> min >> sec;
+  };
   void print() {
-    cout << "Entered time is : " << hour << "H " << minute << "M " << second
-         << "S \n\n";
-  }
+    cout << " hour: " << hour << " min: " << min << " sec: " << sec << endl;
+  };
 
-  friend Time addtime(Time *t1, Time *t2);
-  friend void printtimebyref(Time &), printtimebyval(Time);
+  friend Time addTime(Time, Time);
+  friend Time addTime(Time *, Time *);
+  friend Time addTimeByRef(Time &, Time &);
 };
 
-Time addtime(Time *t1, Time *t2) {
-  int totalsec = (t1->hour + t2->hour) * 60 * 60 +
-                 (t1->minute + t2->minute) * 60 + t1->second + t2->second;
+Time addTime(Time t1, Time t2) {
+  int totalsec =
+      (t1.hour + t2.hour) * 60 * 60 + (t1.min + t2.min) * 60 + t1.sec + t2.sec;
   Time result;
-  result.hour = totalsec / 3600;
-  result.minute = (totalsec - result.hour * 3600) / 60;
-  result.second = (totalsec - result.minute * 60 - result.hour * 3600);
+  result.hour = totalsec / (60 * 60);
+  result.min = (totalsec - result.hour * 60 * 60) / 60;
+  result.sec = totalsec - result.hour * 60 * 60 - result.min * 60;
   return result;
 }
 
-void printtimebyref(Time &result) {
-  cout << "passed object by reference\n";
-  cout << "Total time is : " << result.hour << "H " << result.minute << "M "
-       << result.second << "S \n\n";
+Time addTime(Time *t1, Time *t2) {
+  int totalsec = (t1->hour + t2->hour) * 60 * 60 + (t1->min + t2->min) * 60 +
+                 t1->sec + t2->sec;
+  Time result;
+  result.hour = totalsec / (60 * 60);
+  result.min = (totalsec - result.hour * 60 * 60) / 60;
+  result.sec = totalsec - result.hour * 60 * 60 - result.min * 60;
+  return result;
 }
 
-void printtimebyval(Time result) {
-  cout << "passed object by value \n";
-  cout << "Total time is : " << result.hour << "H " << result.minute << "M "
-       << result.second << "S \n\n";
+Time addTimeByRef(Time &t1, Time &t2) {
+  int totalsec =
+      (t1.hour + t2.hour) * 60 * 60 + (t1.min + t2.min) * 60 + t1.sec + t2.sec;
+  Time result;
+  result.hour = totalsec / (60 * 60);
+  result.min = (totalsec - result.hour * 60 * 60) / 60;
+  result.sec = totalsec - result.hour * 60 * 60 - result.min * 60;
+  return result;
 }
 
 int main() {
-  Time t1, t2;
-  t1.input();
-  t1.print();
-  t2.input();
-  t2.print();
-  // pass by address
-  Time result = addtime(&t1, &t2);
-  // pass by reference
-  printtimebyref(result);
-  // pass by value
-  printtimebyval(result);
+  Time t1, t2, t3;
+  t1.set();
+  t2.set();
+  // by value
+  t3 = addTime(t1, t2);
+  t3.print();
+  // by address
+  t3 = addTime(&t1, &t2);
+  t3.print();
+  // by reference
+  t3 = addTimeByRef(t1, t2);
+  t3.print();
+  return 0;
 }
